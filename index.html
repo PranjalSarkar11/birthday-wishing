@@ -1,27 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Wishes 🎉</title>
-  <meta name="description" content="A premium birthday wishing page with personalized greetings and confetti animation." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <main class="container">
-    <section class="card" aria-labelledby="greeting-heading">
-      <h1 id="greeting-heading" class="title">Happy Birthday!</h1>
-      <p class="subtitle">Enter a name to get a personalized wish</p>
-      <input type="text" id="nameInput" placeholder="Your name..." autocomplete="off" />
-      <button id="wishBtn" class="btn">Wish</button>
-      <p id="personalGreeting" class="greeting" aria-live="polite"></p>
-    </section>
-  </main>
-  <canvas id="confetti-canvas"></canvas>
-  <script src="script.js"></script>
+
+    <!-- Floating Background Hearts Animation -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div class="mobile-container">
+        
+        <!-- Header Section -->
+        <header class="header">
+            <span class="badge"><i class="fa-solid fa-heart"></i> Special Day</span>
+            <h1>Happy Birthday, <br><span class="highlight">My Everything</span> ✨</h1>
+            <p class="subtext">You bring endless warmth and joy into my world every single day.</p>
+        </header>
+
+        <!-- Live Countdown Section -->
+        <section class="card countdown-card">
+            <h2><i class="fa-solid fa-clock-rotate-left"></i> Countdown to November 30</h2>
+            <div class="countdown-grid" id="countdown">
+                <div class="time-box"><span id="days">00</span><label>Days</label></div>
+                <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+                <div class="time-box"><span id="minutes">00</span><label>Mins</label></div>
+                <div class="time-box"><span id="seconds">00</span><label>Secs</label></div>
+            </div>
+            <p id="birthday-alert" class="birthday-alert hidden">🎉 IT'S HER SPECIAL DAY! HAPPY BIRTHDAY LOVE! 🎂</p>
+        </section>
+
+        <!-- Photo Gallery / Slider Section -->
+        <section class="card gallery-card">
+            <h2><i class="fa-solid fa-images"></i> Our Beautiful Memories</h2>
+            <div class="slider-container">
+                <div class="slide active"><img src="photo1.jpg" alt="Memory 1"></div>
+                <div class="slide"><img src="photo2.jpg" alt="Memory 2"></div>
+                <div class="slide"><img src="photo3.jpg" alt="Memory 3"></div>
+                <div class="slide"><img src="photo4.jpg" alt="Memory 4"></div>
+                <div class="slide"><img src="photo5.jpg" alt="Memory 5"></div>
+                <div class="slide"><img src="photo6.jpg" alt="Memory 6"></div>
+                <div class="slide"><img src="photo7.jpg" alt="Memory 7"></div>
+                
+                <!-- Controls -->
+                <button class="slider-btn prev-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="slider-btn next-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="dots-container" id="dotsContainer"></div>
+        </section>
+
+        <!-- Love Quotes & Messages Section -->
+        <section class="card quote-card">
+            <h2><i class="fa-solid fa-book-open-reader"></i> Words From My Heart</h2>
+            <div class="quote-box">
+                <i class="fa-solid fa-quote-left quote-icon"></i>
+                <p id="quoteText">"In a world full of temporary things, you are my forever, my peace, and my absolute favorite reason to smile."</p>
+                <span id="quoteAuthor">— Forever Yours</span>
+            </div>
+            <button class="cta-button" id="nextQuoteBtn"><i class="fa-solid fa-heart-pulse"></i> Read Another Line</button>
+        </section>
+
+        <!-- Personal Note Section -->
+        <section class="card message-card">
+            <h2><i class="fa-solid fa-envelope-open-text"></i> A Note For You</h2>
+            <p class="love-letter">
+                Thank you for walking into my life and turning ordinary moments into magical memories. Your smile brightens my darkest days, and your hand in mine is my favorite place to be. Wishing you a year ahead filled with as much happiness as you give to me. I love you beyond words! ❤️
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with endless love & care for you ✨</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
