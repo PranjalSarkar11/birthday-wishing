@@ -1,101 +1,338 @@
-/* style.css - premium birthday wishing page */
+:root {
+    --bg-gradient: linear-gradient(135deg, #120309 0%, #2a0815 50%, #1a020c 100%);
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 105, 180, 0.15);
+    --text-primary: #fff0f3;
+    --text-secondary: #ffb3c6;
+    --accent-pink: #ff4d6d;
+    --accent-glow: rgba(255, 77, 109, 0.4);
+}
 
-/* Global typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, hsl(200, 80%, 95%), hsl(260, 80%, 95%));
-  color: #222;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* Glassmorphism card */
-.container {
-  padding: 2rem;
+/* Floating Hearts Background Animation */
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
 }
 
+.heart-particle {
+    position: absolute;
+    color: rgba(255, 77, 109, 0.25);
+    font-size: 14px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(105vh) scale(0.6) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.4) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile Container Layout */
+.mobile-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* Glassmorphism Cards */
 .card {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 2.5rem 2rem;
-  text-align: center;
-  max-width: 420px;
-  width: 100%;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  animation: float 4s ease-in-out infinite;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+.card:hover {
+    transform: translateY(-3px);
 }
 
-.title {
-  font-size: 2.2rem;
-  margin-bottom: 0.3rem;
-  color: hsl(260, 70%, 30%);
+/* Header Styling */
+.header {
+    text-align: center;
+    padding: 10px 0;
 }
 
-.subtitle {
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
-  color: hsl(200, 40%, 30%);
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 77, 109, 0.15);
+    color: var(--accent-pink);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 77, 109, 0.3);
 }
 
-input[type="text"] {
-  width: 80%;
-  padding: 0.6rem 0.8rem;
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(5px);
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
-button.btn {
-  background: linear-gradient(45deg, hsl(260,70%,45%), hsl(200,70%,45%));
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+.highlight {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-button.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+.subtext {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    font-weight: 300;
 }
 
-.greeting {
-  margin-top: 1.5rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: hsl(260, 50%, 25%);
+/* Section Headings */
+.card h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
 }
 
-/* Confetti canvas full-screen */
-#confetti-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
+.card h2 i {
+    color: var(--accent-pink);
 }
 
-@media (max-width: 480px) {
-  .title { font-size: 1.8rem; }
-  .subtitle { font-size: 0.9rem; }
-  .greeting { font-size: 1.2rem; }
+/* Countdown Timer */
+.countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.time-box {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 12px 6px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.time-box span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.time-box label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.birthday-alert {
+    text-align: center;
+    margin-top: 14px;
+    font-weight: 600;
+    color: #ff758c;
+    font-size: 0.95rem;
+    animation: pulse 1.5s infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Photo Slider Styles */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Automatically adapts and crops photos nicely to fill phone frame */
+    border-radius: 16px;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+    z-index: 5;
+}
+
+.slider-btn:hover {
+    background: var(--accent-pink);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    width: 20px;
+    border-radius: 4px;
+    background: var(--accent-pink);
+}
+
+/* Quotes Section */
+.quote-box {
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.quote-icon {
+    font-size: 1.5rem;
+    color: rgba(255, 77, 109, 0.3);
+    margin-bottom: 8px;
+}
+
+.quote-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.quote-box span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: block;
+}
+
+.cta-button {
+    width: 100%;
+    margin-top: 14px;
+    background: linear-gradient(135deg, #ff4d6d, #ff758c);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--accent-glow);
+    transition: transform 0.2s, opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cta-button:active {
+    transform: scale(0.97);
+}
+
+/* Love Letter Message */
+.love-letter {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-align: justify;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
 }
