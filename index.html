@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Wishes 🎉</title>
+  <meta name="description" content="A premium birthday wishing page with personalized greetings and confetti animation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-labelledby="greeting-heading">
+      <h1 id="greeting-heading" class="title">Happy Birthday!</h1>
+      <p class="subtitle">Enter a name to get a personalized wish</p>
+      <input type="text" id="nameInput" placeholder="Your name..." autocomplete="off" />
+      <button id="wishBtn" class="btn">Wish</button>
+      <p id="personalGreeting" class="greeting" aria-live="polite"></p>
+    </section>
+  </main>
+  <canvas id="confetti-canvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
