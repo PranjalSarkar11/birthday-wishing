@@ -191,14 +191,15 @@ body {
     100% { opacity: 0.6; }
 }
 
-/* Photo Slider Styles */
+/* Photo Slider Styles (Strictly equalized dimensions & warmth filter) */
 .slider-container {
     position: relative;
     width: 100%;
-    height: 380px;
-    border-radius: 16px;
+    aspect-ratio: 4 / 5; /* Ensures strict uniform dimension ratio across all photos */
+    height: 420px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 .slide {
@@ -218,8 +219,26 @@ body {
 .slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Automatically adapts and crops photos nicely to fill phone frame */
-    border-radius: 16px;
+    object-fit: cover; /* Fits every photo uniformly without stretching */
+    object-position: center;
+    border-radius: 18px;
+    
+    /* Unified Romantic Color Grading Filter */
+    filter: brightness(1.05) contrast(1.08) saturate(1.15) sepia(0.12);
+    transition: filter 0.3s ease;
+}
+
+/* Subtle Vignette Overlay for uniform cinematic look */
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    background: radial-gradient(circle, transparent 60%, rgba(20, 2, 10, 0.4) 100%);
+    pointer-events: none;
 }
 
 .slider-btn {
