@@ -129,15 +129,15 @@ const loveQuotes = [
         author: "— Your Lucky Guy"
     },
     {
-        text: "Meeting you was fate, becoming your partner was a choice, but falling in love with you was completely out of my control.",
-        author: "— Deeply in Love"
+        text: "Meeting you was fate , ata totally amader kismat amader dekha howar kono chances e chilo na..hoyto thakur amar jonnoi toke baniyeche and vice versa.",
+        author: "— Rab ne bana di jodi..(#filmy dialogue)"
     },
     {
-        text: "You are the finest, loveliest, tenderest, and most beautiful person I have ever known—and even that is an understatement.",
-        author: "— My Heart Belongs to You"
+        text: "You are the finest, loveliest, tenderest, and most beautiful person I have ever known.",
+        author: "—To the sweatest motki "
     },
     {
-        text: "No matter where life takes us or what we do, every single second with you is my absolute favorite part of the day.",
+        text: "No matter where life takes us or what we do, but i will always support you and i will try to be your strength.",
         author: "— Always & Forever"
     }
 ];
